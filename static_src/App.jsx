@@ -15,18 +15,17 @@ export default class App extends React.Component {
     };
 
     componentDidMount(){
-      axios.get(`https://oauth.vk.com/authorize?client_id={id}&display=popup&redirect_uri={uri}&scope=friends&response_type=token&v=5.120`)
       const {id,uri} = this.state;
-      );  
-        }
-
-          }
-            console.log(response.data);
-          }else{
-
-              console.log(response.data.error.error_msg);
-          if (response.data.error) {
+      axios.get('https://oauth.vk.com/authorize?client_id=`{id}`&display=page&redirect_uri=`{uri}`&scope=friends&response_type=token&v=5.120')
         .then((response) => { 
+          if (response.data.error) {
+              console.log(response.data.error.error_msg);
+          }else{
+            console.log(response.data);
+          };
+          }
+        );  
+
     }
 
   render() {
