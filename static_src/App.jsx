@@ -8,25 +8,25 @@ export default class App extends React.Component {
   
  state = {
       activeView: 'header',
+
       id:'7544278',
       uri:'https://oauth.vk.com/blank.html',
       response:' ',
     };
 
-
     componentDidMount(){
+      axios.get(`https://oauth.vk.com/authorize?client_id={id}&display=popup&redirect_uri={uri}&scope=friends&response_type=token&v=5.120`)
       const {id,uri} = this.state;
-      axios.get(`https://oauth.vk.com/authorize?client_id={id}&display=popup&redirect_uri={uri}&scope=friends&response_type=token&v=5.120`,{mode:'no-cors'})
-        .then((response) => { 
-          if (response.data.error) {
-              console.log(response.data.error.error_msg);
-
-          }else{
-            console.log(response.data);
-          }
-
-        }
       );  
+        }
+
+          }
+            console.log(response.data);
+          }else{
+
+              console.log(response.data.error.error_msg);
+          if (response.data.error) {
+        .then((response) => { 
     }
 
   render() {
