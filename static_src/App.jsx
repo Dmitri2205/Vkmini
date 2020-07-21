@@ -16,6 +16,7 @@ export default class App extends React.Component {
 
     componentDidMount(){
       const {id,uri} = this.state;
+      bridge.send("VKWebAppInit", {});
       axios.get('https://oauth.vk.com/authorize?client_id=`{id}`&display=page&redirect_uri=`{uri}`&scope=friends&response_type=token&v=5.120')
         .then((response) => { 
           if (response.data.error) {
@@ -29,7 +30,6 @@ export default class App extends React.Component {
     }
 
   render() {
-   bridge.send("VKWebAppInit", {});
     
     
     
