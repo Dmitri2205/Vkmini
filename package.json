@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack --mode production",
     "start": "webpack-dev-server --open",
-    "watch": "webpack --watch"
+    "watch": "webpack --watch",
+    "combo": "npm run start && npm run build"
   },
   "author": "Dmitry Baranov",
   "license": "ISC",
