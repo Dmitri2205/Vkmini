@@ -74,7 +74,7 @@ logout = () => {
 
 
 friendsList = ()=> {
-	VK.Api.call('users.get',{user_ids})
+	VK.Api.call('users.get',{})
 
 };
 	
