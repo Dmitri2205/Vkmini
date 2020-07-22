@@ -65,7 +65,16 @@ authFunction = () => {
     );
 };
 
+
+logout = () => {
+		VK.Auth.logout((response)=>{
+			console.log(response);	
+		});
+}
+
+
 friendsList = ()=> {
+	VK.Api.call('users.get',{user_ids})
 
 };
 	
@@ -78,6 +87,7 @@ friendsSwitch = (event) => {
 		
 	}
 	console.log("Switch");
+	this.friendsList();
 }
 
 
@@ -91,6 +101,7 @@ friendsSwitch = (event) => {
      			<PanelHeader>Username</PanelHeader>
     				<Cell><Button onClick={()=>{this.authFunction()}} >Auth</Button></Cell>
     				<Cell><Button onClick={()=>{this.friendsSwitch()}}>Friends</Button></Cell>
+    				<Cell><Button onClick={()=>{this.logout()}} >Logout</Button></Cell>
     				<Div>
     					Div
 	 				</Div>
