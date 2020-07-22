@@ -18,25 +18,51 @@ export default class App extends React.Component {
     };
 
     componentDidMount(){
-      const {id,uri} = this.state;
+          VK.init({apiId: 7545593});
+      // const {id,uri} = this.state;
       bridge.send("VKWebAppInit", {});
      // window.location = 'https:\//oauth.vk.com/authorize?client_id=7545593&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.120';  
     };
 
 
+
+
+
+
+
 authFunction = () => {
-	let auth = ' ';
-	alert('Redirect');
-	// window.location = 'https:\//oauth.vk.com/authorize?client_id=7545593&display=page&redirect_uri=https://dmitri2205.github.io/Vkmini/&scope=friends&response_type=token&v=5.120';  
-	window.location = 'https:\//oauth.vk.com/authorize?client_id=7545593&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.120';  
-     // axios.get('https:\//oauth.vk.com/authorize?client_id=7545593&display=popup&redirect_uri=https:\//oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.120')
-     // .then((response)=>{
-     	// auth = response.data;
-     	// console.log(auth);
-     	// console.log(typeof(auth));
-     	// this.setState({auth})
-     // return auth; 
-     // }) 
+ 
+    // Авторизация
+    VK.Auth.login(
+      // callback-функция, которая будет вызвана после авторизации
+      function (response) {
+ 
+        console.log(response)
+ 
+        if (response.status === 'connected') { // авторизация прошла успешно
+ 				
+          var user = response.session.user; //  информация о пользователе
+            alert(user);
+ 
+        } else if (response.status === 'not_authorized') { // пользователь авторизован в ВКонтакте, но не разрешил доступ приложению;
+ 				alert('Not authorised');
+        } else if (response.status === 'unknown') { // пользователь не авторизован ВКонтакте.
+ 				alert('Unknown');
+ 
+        };
+ 
+      },
+      // права доступа (integer)
+      // допустимые значения:
+      // AUDIO:8
+      // FRIENDS:2
+      // MATCHES:32
+      // PHOTOS:4
+      // QUESTIONS:64
+      // VIDEO:16
+      // WIKI:128
+      VK.access.PHOTOS
+    );
 };
 
 friendsList = ()=> {
@@ -63,10 +89,10 @@ friendsSwitch = (event) => {
       	<View id="header" activePanel="header__name" style={{border:"1px solid red"}}>
     		<Panel id="header__name">
      			<PanelHeader>Username</PanelHeader>
-    				<Cell><Button onClick={()=>{this.authFunction()}}>Auth</Button></Cell>
+    				<Cell><Button onClick={()=>{this.authFunction()}} >Auth</Button></Cell>
     				<Cell><Button onClick={()=>{this.friendsSwitch()}}>Friends</Button></Cell>
     				<Div>
-	 					<link rel="import" href="oauth.vk.com/blank.html"/>
+    					Div
 	 				</Div>
 	 					
      		</Panel>
