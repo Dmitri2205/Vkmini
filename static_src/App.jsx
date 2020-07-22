@@ -27,8 +27,8 @@ export default class App extends React.Component {
 authFunction = () => {
 	let auth = ' ';
 	alert('Redirect');
-	window.location = 'https:\//oauth.vk.com/authorize?client_id=7545593&display=page&redirect_uri=https://dmitri2205.github.io/Vkmini/&scope=friends&response_type=token&v=5.120';  
-	// window.location = 'https:\//oauth.vk.com/authorize?client_id=7545593&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.120';  
+	// window.location = 'https:\//oauth.vk.com/authorize?client_id=7545593&display=page&redirect_uri=&scope=friends&response_type=token&v=5.120';  
+	window.location = 'https:\//oauth.vk.com/authorize?client_id=7545593&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.120';  
      // axios.get('https:\//oauth.vk.com/authorize?client_id=7545593&display=popup&redirect_uri=https:\//oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.120')
      // .then((response)=>{
      	// auth = response.data;
