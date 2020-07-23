@@ -18,10 +18,10 @@ export default class App extends React.Component {
     };
 
     componentDidMount(){
-          VK.init({apiId: 7545593});
+          VK.init({apiId: 7545593, status: true});
       // const {id,uri} = this.state;
       bridge.send("VKWebAppInit", {});
-     // window.location = 'https:\//oauth.vk.com/authorize?client_id=7545593&display=page&redirect_uri=https://oauth.vk.com/blank.html&scope=friends&response_type=token&v=5.120';  
+     // window.location = 'https:\//oauth.vk.com/authorize?client_id=7545593&display=page&scope=friends&response_type=token&v=5.120';  
     };
 
 
@@ -31,8 +31,7 @@ export default class App extends React.Component {
 
 
 authFunction = () => {
- 
-    // Авторизация
+         // Авторизация
     VK.Auth.login(
       // callback-функция, которая будет вызвана после авторизации
       function (response) {
@@ -67,9 +66,7 @@ authFunction = () => {
 
 
 logout = () => {
-		VK.Auth.logout((response)=>{
-			console.log(response);	
-		});
+		VK.Auth.logout()
 }
 
 
